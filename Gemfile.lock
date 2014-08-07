@@ -47,6 +47,9 @@ GEM
     execjs (2.2.1)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
     ffi (1.9.3)
     figaro (0.7.0)
       bundler (~> 1.0)
@@ -184,7 +187,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
-  factory_girl (~> 4.4.0)
+  factory_girl_rails (~> 4.4.0)
   figaro
   guard-rails (~> 0.5.3)
   guard-rspec (~> 4.3.1)
