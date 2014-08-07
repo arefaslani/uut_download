@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140807102113) do
   enable_extension "plpgsql"
 
   create_table "users", force: true do |t|
-    t.string   "stdudent_number"
+    t.string   "student_number"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
@@ -25,6 +25,6 @@ ActiveRecord::Schema.define(version: 20140807102113) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["stdudent_number"], name: "index_users_on_stdudent_number", unique: true, using: :btree
+  add_index "users", ["student_number"], name: "index_users_on_student_number", unique: true, using: :btree
 
 end
