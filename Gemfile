@@ -37,7 +37,7 @@ group :test, :development do
   gem 'guard-spork', '~> 1.5.1'
   gem 'guard-rails', '~> 0.5.3'
   gem 'terminal-notifier-guard', '~> 1.5.3'
-  gem 'factory_girl', '~> 4.4.0'
+  gem 'factory_girl_rails', '~> 4.4.0'
 end
 
 # Use unicorn as the app server
