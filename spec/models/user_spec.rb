@@ -38,6 +38,11 @@ describe User, :type => :model do
         expect(build(:user, student_number: stdnum)).to be_invalid
       end
     end
+
+    it "is invalid with empty student number" do
+      expect(build(:user, student_number: nil)).to be_invalid
+      expect(build(:user, student_number: "")).to be_invalid
+    end
   end
 
   describe "email" do
@@ -60,6 +65,11 @@ describe User, :type => :model do
       ].each do |valid_email|
         expect(build(:user, email: valid_email)).to be_valid
       end
+    end
+
+    it "is invalid with empty email address" do
+      expect(build(:user, email: nil)).to be_invalid
+      expect(build(:user, email: "")).to be_invalid
     end
   end
 end
