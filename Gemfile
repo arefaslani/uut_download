@@ -30,6 +30,16 @@ gem 'figaro'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+group :test, :development do
+  gem 'rspec-rails', '~> 3.0.2'
+  gem 'spork-rails', '~> 4.0.0'
+  gem 'guard-rspec', '~> 4.3.1'
+  gem 'guard-spork', '~> 1.5.1'
+  gem 'guard-rails', '~> 0.5.3'
+  gem 'terminal-notifier-guard', '~> 1.5.3'
+  gem 'factory_girl', '~> 4.4.0'
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
