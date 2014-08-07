@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     begin
       @user.save!
       flash[:success] = "Welcome user!"
-      redirect_to @user
+      redirect_to action: 'show', student_number: @user.student_number
     rescue
       flash.now[:danger] = "The data you have passed are incorrect"
       render 'new'
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(student_number: params[:student_number])
   end
 
   private
