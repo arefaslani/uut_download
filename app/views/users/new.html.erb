@@ -1,0 +1,47 @@
+<%= form_for @user do |f| %>
+  <p>
+    <%= f.label :student_number %>
+    <%= f.text_field :student_number %>
+    <% unless @user.errors[:student_number].nil? %>
+      <p class="danger">
+        <%= @user.errors[:student_number].first %>
+      </p>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <% unless @user.errors[:email].nil? %>
+      <p class="danger">
+        <%= @user.errors[:email].first %>
+      </p>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <% unless @user.errors[:password].nil? %>
+      <p class="danger">
+        <%= @user.errors[:password].first %>
+      </p>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <% unless @user.errors[:password_confirmation].nil? %>
+      <p class="danger">
+        <%= @user.errors[:password_confirmation].first %>
+      </p>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.submit 'Sign up' %>
+  </p>
+<% end %>
+
+<%= @user.errors.inspect %>

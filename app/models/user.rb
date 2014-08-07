@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
   validates :student_number,
     length: { is: 10 },
     format: { with: /\A\d{10}\z/ },
-    presence: true
+    presence: true,
+    uniqueness: true
 
   validates :email,
     format: { with: /\A([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\z/ },
-    presence: true
+    presence: true,
+    uniqueness: true
 end
