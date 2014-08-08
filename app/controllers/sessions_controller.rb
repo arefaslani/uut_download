@@ -1,13 +1,17 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
+
   def new
     
   end
 
   def create
-    begin
-      @user = User.find_by(student_number: session_params[:student_number])
-    rescue
-      flash[:danger] = "Incorrect student number and password combination."
+    @user = User.find_by!(student_number: session_params[:student_number])
+    if @user && @user.authenticate(session_params[:password])
+      sign_in @user
+      redirect_to controller: 'users', action: 'show', student_number: @user.student_number
+    else
+      flash.now[:danger] = "There is no such user."
       render :new
     end
   end
