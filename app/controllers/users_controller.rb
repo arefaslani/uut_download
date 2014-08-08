@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     begin
       @user.save!
+      sign_in @user
       flash[:success] = "Welcome user!"
       redirect_to action: 'show', student_number: @user.student_number
     rescue
