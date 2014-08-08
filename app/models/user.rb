@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     uniqueness: true
 
   validates :email,
-    format: { with: /\A([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\z/ },
+    format: { with: /\A([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\z/i },
     presence: true,
     uniqueness: true
 end
