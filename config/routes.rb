@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/login' => 'sessions#new'
+
   resources :users, only: [:new, :create, :show], param: 'student_number'
   resources :sessions, only: [:new, :create]
 
