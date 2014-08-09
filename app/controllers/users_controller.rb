@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(student_number: params[:student_number])
+    authorize! :read, @user
   end
 
   private
