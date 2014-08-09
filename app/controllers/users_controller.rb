@@ -7,8 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     begin
       @user.save!
+      sign_in @user
       flash[:success] = "Welcome user!"
-      redirect_to action: 'show', student_number: @user.student_number
+      redirect_to user_path(@user, student_number: @user.student_number)
     rescue
       flash.now[:danger] = "The data you have passed are incorrect"
       render 'new'
