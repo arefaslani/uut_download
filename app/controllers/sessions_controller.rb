@@ -16,6 +16,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    sign_out
+    redirect_to '/'
+  end
+
+  private
+
   def session_params
     params.require(:session).permit(:student_number, :password)
   end
