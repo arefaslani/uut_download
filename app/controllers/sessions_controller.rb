@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by!(student_number: session_params[:student_number])
+    @user = User.find_by(student_number: session_params[:student_number])
     if @user && @user.authenticate(session_params[:password])
       sign_in @user
       redirect_to @user
