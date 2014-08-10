@@ -18,7 +18,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(student_number: params[:student_number])
-    authorize! :read, @user
+    begin
+      authorize! :read, @user
+    rescue CanCan::AccessDenied => e
+      flash[:warning] = e.message
+      redirect_to root_path
+    end
   end
 
   private
