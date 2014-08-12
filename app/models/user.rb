@@ -1,5 +1,7 @@
+require 'utils/user'
+
 class User < ActiveRecord::Base
-  include UsersHelper
+  include Utils::User
   has_secure_password
 
   # student_number is 10 digits
