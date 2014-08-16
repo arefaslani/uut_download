@@ -49,7 +49,6 @@ describe User, :type => :model do
     it "is invalid when doesn't match the email format" do
       invalid_email_addresses = [
         "testuser.com",
-        "testuser@test",
         "testuser.test.com",
         "@testuser.com"
       ].each do |invalid_email|
@@ -61,7 +60,7 @@ describe User, :type => :model do
       valid_email_addresses = [
         "testuser@test.com",
         "test_user@test.com",
-        "test.user@test.com"
+        "test.user@test.com",
       ].each do |valid_email|
         expect(build(:user, email: valid_email)).to be_valid
       end
