@@ -1,8 +1,1 @@
-<%= bootstrap_form_for @user do |f| %>
-  
-  <%= f.text_field :student_number %>
-  <%= f.text_field :email %>
-  <%= f.password_field :password %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit 'Sign up' %>
-<% end %>
+<%= render 'shared/user_form' %>

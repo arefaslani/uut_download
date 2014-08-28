@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
 
-  resources :users, only: [:new, :create, :show], param: 'student_number'
+  resources :users, only: [:new, :create, :show, :edit, :update], param: 'student_number'
   resources :sessions, only: [:new, :create, :destroy]
   resources :links, only: [:new, :create]
 
