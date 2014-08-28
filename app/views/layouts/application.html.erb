@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
@@ -14,7 +15,13 @@
   <div class="alert alert-<%= key.to_s %>"><%= value %></div>
 <% end %>
 
-<%= yield %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= yield %>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
