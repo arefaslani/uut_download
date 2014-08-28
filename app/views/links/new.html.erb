@@ -1,0 +1,11 @@
+<p>
+  Add links here:
+</p>
+<%= form_for(@link) do |f| %>
+  <ul>
+    <li>
+      <%= f.radio_button 'protocol', 'http' %>HTTP
+    </li>
+  </ul>
+  <%= f.text_field :address %>
+<% end %>

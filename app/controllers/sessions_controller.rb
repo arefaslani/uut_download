@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(student_number: session_params[:student_number])
     if @user && @user.authenticate(session_params[:password])
       sign_in @user
-      redirect_to @user
+      redirect_to params['redirect_url'] || @user
     else
       flash.now[:danger] = "There is no such user."
       render :new
