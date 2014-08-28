@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   include Utils::User
   has_secure_password
 
+  has_many :links
+
   # student_number is 10 digits
   validates :student_number,
     length: { is: 10 },
