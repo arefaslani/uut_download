@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :check_signed_in, only: [:show]
+  before_filter :check_signed_in, except: [:new, :create]
   
   def new
     @user = User.new
@@ -22,6 +22,18 @@ class UsersController < ApplicationController
     @user = User.find_by(student_number: params[:student_number])
   end
 
+  def update
+    @user = current_user
+    begin
+      @user.update!(update_user_params)
+      flash[:success] = "اطلاعات کاربری شما با موفقیت ویرایش شد."
+      redirect_to @user
+    rescue
+      flash.now[:danger] = "مشکلی در ویرایش اطلاعات شما پیش آمده است."
+      render :edit
+    end
+  end
+
   def show
     @user = User.find_by(student_number: params[:student_number])
     begin
@@ -38,5 +50,9 @@ class UsersController < ApplicationController
     parameters = params.require(:user).permit(:student_number, :email, :password, :password_confirmation)
     parameters[:email] = parameters[:email].downcase
     return parameters
+  end
+
+  def update_user_params
+    user_params.permit(:email, :password, :password_confirmation)
   end
 end
