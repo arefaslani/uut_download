@@ -11,13 +11,11 @@
 
 <%= render 'layouts/shared/navbar' %>
 
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key.to_s %>"><%= value %></div>
-<% end %>
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <%= render 'layouts/shared/flash_messages' %>
+
       <%= yield %>
     </div>
   </div>
