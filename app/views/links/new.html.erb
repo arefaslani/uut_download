@@ -1,11 +1,8 @@
-<p>
-  Add links here:
-</p>
-<%= form_for(@link) do |f| %>
-  <ul>
-    <li>
-      <%= f.radio_button 'protocol', 'http' %>HTTP
-    </li>
-  </ul>
+<%= bootstrap_form_for(@link) do |f| %>
+  <%= f.form_group :protocol do %>
+    <%= f.radio_button :protocol, 'http', label: "HTTP", inline: true, checked: true %>
+  <% end %>
+
   <%= f.text_field :address %>
+  <%= f.submit 'Add Link' %>
 <% end %>

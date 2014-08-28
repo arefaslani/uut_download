@@ -33,6 +33,9 @@ gem 'cancancan', '~> 1.9'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Generate forms with bootstrap 3 support
+gem 'bootstrap_form'
+
 group :test, :development do
   gem 'rspec-rails', '~> 3.0.2'
   gem 'spork-rails', '~> 4.0.0'
