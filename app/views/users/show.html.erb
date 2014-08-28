@@ -7,4 +7,8 @@
     <td><%= current_user.student_number %></td>
     <td><%= current_user.email %></td>
   </tr>
+  <tr>
+    <td><%= link_to 'ویرایش', edit_user_path(current_user), { class: 'btn btn-primary' } %></td>
+    <td></td>
+  </tr>
 </table>
