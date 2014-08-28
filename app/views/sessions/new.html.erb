@@ -1,4 +1,4 @@
-<%= form_for :session, url: sessions_url do |f| %>
+<%= form_for :session, url: sessions_url(redirect_url: params['redirect_url']) do |f| %>
   <p>
     <%= f.label :student_number %>
     <%= f.text_field :student_number %>
