@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find_by(student_number: params[:student_number])
+  end
+
   def show
     @user = User.find_by(student_number: params[:student_number])
     begin
